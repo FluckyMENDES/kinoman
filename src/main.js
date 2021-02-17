@@ -1,11 +1,9 @@
-"use strict";
-
-const render = (container, template, place = "beforeend") => {
-    container.insertAdjacentHTML(place, template);
+const render = (container, template, place = `beforeend`) => {
+  container.insertAdjacentHTML(place, template);
 };
 
 const createProfileTemplate = () => {
-    return `
+  return `
     <section class="header__profile profile">
         <p class="profile__rating">Movie Buff</p>
         <img class="profile__avatar" src="images/bitmap@2x.png" alt="Avatar" width="35" height="35">
@@ -14,7 +12,7 @@ const createProfileTemplate = () => {
 };
 
 const createMainNavigationTemplate = () => {
-    return `
+  return `
         <nav class="main-navigation">
             <div class="main-navigation__items">
             <a href="#all" class="main-navigation__item main-navigation__item--active">All movies</a>
@@ -28,7 +26,7 @@ const createMainNavigationTemplate = () => {
 };
 
 const createSortingTemplate = () => {
-    return `
+  return `
         <ul class="sort">
             <li><a href="#" class="sort__button sort__button--active">Sort by default</a></li>
             <li><a href="#" class="sort__button">Sort by date</a></li>
@@ -38,7 +36,7 @@ const createSortingTemplate = () => {
 };
 
 const createFilmCardTemplate = () => {
-    return `
+  return `
         <article class="film-card">
             <h3 class="film-card__title">The Dance of Life</h3>
             <p class="film-card__rating">8.3</p>
@@ -60,13 +58,13 @@ const createFilmCardTemplate = () => {
 };
 
 const createShowMoreBtnTemplate = () => {
-    return `
+  return `
         <button class="films-list__show-more">Show more</button>
     `;
 };
 
 const createExtraFimlListTemplate = (title) => {
-    return `
+  return `
         <section class="films-list--extra">
             <h2 class="films-list__title">${title}</h2>
 
@@ -80,7 +78,7 @@ const createExtraFimlListTemplate = (title) => {
 };
 
 const createMainContentTemplate = () => {
-    return `
+  return `
     <section class="films">
         <section class="films-list">
         <h2 class="films-list__title visually-hidden">All movies. Upcoming</h2>
@@ -96,20 +94,20 @@ const createMainContentTemplate = () => {
         ${createShowMoreBtnTemplate()}
         </section>
 
-        ${createExtraFimlListTemplate("Top rated")}
-        ${createExtraFimlListTemplate("Most commented")}
+        ${createExtraFimlListTemplate(`Top rated`)}
+        ${createExtraFimlListTemplate(`Most commented`)}
     </section>
     `;
 };
 
 const createTotalFilmsCountTemplate = () => {
-    return `
+  return `
         <p>130 291 movies inside</p>
     `;
 };
 
 const createDetailsPopupTemplate = () => {
-    return `
+  return `
     <section class="film-details">
         <form class="film-details__inner" action="" method="get">
         <div class="form-details__top-container">
@@ -119,22 +117,22 @@ const createDetailsPopupTemplate = () => {
             <div class="film-details__info-wrap">
             <div class="film-details__poster">
                 <img class="film-details__poster-img" src="./images/posters/the-great-flamarion.jpg" alt="">
-    
+
                 <p class="film-details__age">18+</p>
             </div>
-    
+
             <div class="film-details__info">
                 <div class="film-details__info-head">
                 <div class="film-details__title-wrap">
                     <h3 class="film-details__title">The Great Flamarion</h3>
                     <p class="film-details__title-original">Original: The Great Flamarion</p>
                 </div>
-    
+
                 <div class="film-details__rating">
                     <p class="film-details__total-rating">8.9</p>
                 </div>
                 </div>
-    
+
                 <table class="film-details__table">
                 <tr class="film-details__row">
                     <td class="film-details__term">Director</td>
@@ -168,29 +166,29 @@ const createDetailsPopupTemplate = () => {
                     <span class="film-details__genre">Mystery</span></td>
                 </tr>
                 </table>
-    
+
                 <p class="film-details__film-description">
                 The film opens following a murder at a cabaret in Mexico City in 1936, and then presents the events leading up to it in flashback. The Great Flamarion (Erich von Stroheim) is an arrogant, friendless, and misogynous marksman who displays his trick gunshot act in the vaudeville circuit. His show features a beautiful assistant, Connie (Mary Beth Hughes) and her drunken husband Al (Dan Duryea), Flamarion's other assistant. Flamarion falls in love with Connie, the movie's femme fatale, and is soon manipulated by her into killing her no good husband during one of their acts.
                 </p>
             </div>
             </div>
-    
+
             <section class="film-details__controls">
             <input type="checkbox" class="film-details__control-input visually-hidden" id="watchlist" name="watchlist">
             <label for="watchlist" class="film-details__control-label film-details__control-label--watchlist">Add to watchlist</label>
-    
+
             <input type="checkbox" class="film-details__control-input visually-hidden" id="watched" name="watched">
             <label for="watched" class="film-details__control-label film-details__control-label--watched">Already watched</label>
-    
+
             <input type="checkbox" class="film-details__control-input visually-hidden" id="favorite" name="favorite">
             <label for="favorite" class="film-details__control-label film-details__control-label--favorite">Add to favorites</label>
             </section>
         </div>
-    
+
         <div class="form-details__bottom-container">
             <section class="film-details__comments-wrap">
             <h3 class="film-details__comments-title">Comments <span class="film-details__comments-count">4</span></h3>
-    
+
             <ul class="film-details__comments-list">
                 <li class="film-details__comment">
                 <span class="film-details__comment-emoji">
@@ -245,30 +243,30 @@ const createDetailsPopupTemplate = () => {
                 </div>
                 </li>
             </ul>
-    
+
             <div class="film-details__new-comment">
                 <div for="add-emoji" class="film-details__add-emoji-label"></div>
-    
+
                 <label class="film-details__comment-label">
                 <textarea class="film-details__comment-input" placeholder="Select reaction below and write comment here" name="comment"></textarea>
                 </label>
-    
+
                 <div class="film-details__emoji-list">
                 <input class="film-details__emoji-item visually-hidden" name="comment-emoji" type="radio" id="emoji-smile" value="smile">
                 <label class="film-details__emoji-label" for="emoji-smile">
                     <img src="./images/emoji/smile.png" width="30" height="30" alt="emoji">
                 </label>
-    
+
                 <input class="film-details__emoji-item visually-hidden" name="comment-emoji" type="radio" id="emoji-sleeping" value="sleeping">
                 <label class="film-details__emoji-label" for="emoji-sleeping">
                     <img src="./images/emoji/sleeping.png" width="30" height="30" alt="emoji">
                 </label>
-    
+
                 <input class="film-details__emoji-item visually-hidden" name="comment-emoji" type="radio" id="emoji-puke" value="puke">
                 <label class="film-details__emoji-label" for="emoji-puke">
                     <img src="./images/emoji/puke.png" width="30" height="30" alt="emoji">
                 </label>
-    
+
                 <input class="film-details__emoji-item visually-hidden" name="comment-emoji" type="radio" id="emoji-angry" value="angry">
                 <label class="film-details__emoji-label" for="emoji-angry">
                     <img src="./images/emoji/angry.png" width="30" height="30" alt="emoji">
@@ -282,13 +280,15 @@ const createDetailsPopupTemplate = () => {
     `;
 };
 
-const siteHeaderElement = document.querySelector(".header");
+const siteHeaderElement = document.querySelector(`.header`);
 render(siteHeaderElement, createProfileTemplate());
 
-const siteMainElement = document.querySelector(".main");
+const siteMainElement = document.querySelector(`.main`);
 render(siteMainElement, createMainNavigationTemplate());
 render(siteMainElement, createSortingTemplate());
 render(siteMainElement, createMainContentTemplate());
 
-const siteFooterStatistictElement = document.querySelector(".footer__statistics");
+const siteFooterStatistictElement = document.querySelector(
+  `.footer__statistics`
+);
 render(siteFooterStatistictElement, createTotalFilmsCountTemplate());
