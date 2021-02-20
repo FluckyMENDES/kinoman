@@ -1,6 +1,6 @@
-const TotalFilmsCount = () => {
+const TotalFilmsCount = (counter) => {
   return `
-        <p>130 291 movies inside</p>
+        <p>${counter} movies inside</p>
     `;
 };
 

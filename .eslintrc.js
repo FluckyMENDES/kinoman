@@ -3,10 +3,15 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ["htmlacademy/es6"],
+  extends: ['google'],
   parserOptions: {
     ecmaVersion: 12,
-    sourceType: "module",
+    sourceType: 'module',
   },
-  rules: {},
+  rules: {
+    'max-len': ['error', 120],
+    ['indent']: ['off'],
+    ['new-cap']: ['off'],
+    ['require-jsdoc']: ['off'],
+  },
 };
