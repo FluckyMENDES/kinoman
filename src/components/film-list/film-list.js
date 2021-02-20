@@ -1,5 +1,5 @@
-import FilmCard from "./../film-card/film-card";
-import ShowMoreBtn from "./../show-more-button/show-more-button";
+import FilmCard from './../film-card/film-card';
+import ShowMoreBtn from './../show-more-button/show-more-button';
 
 export default function FilmList(films, SHOWING_FILMS_COUNT_ON_START) {
   let filmRenderCounter = SHOWING_FILMS_COUNT_ON_START;

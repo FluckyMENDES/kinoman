@@ -12,5 +12,6 @@ module.exports = {
     'max-len': ['error', 120],
     ['indent']: ['off'],
     ['new-cap']: ['off'],
+    ['require-jsdoc']: ['off'],
   },
 };
