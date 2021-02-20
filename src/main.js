@@ -13,24 +13,32 @@ import generateMockFilmsData from '../mock/films';
 const SHOWING_FILMS_COUNT_ON_START = 5;
 
 // Генерация моковых данных
-
 const films = generateMockFilmsData(20);
-// const getfavoriteFilms = (filmsData) => {
-//   return filmsData.slice().filter((film) => film.userProps.isFavorite === true);
-// };
+// Создание массивов просмотренных и любимых фильмов
+const favoriteFilms = films.slice().filter((film) => film.userProps.isFavorite === true);
+const watchedFilms = films.slice().filter((film) => film.userProps.isWatched === true);
+const willWatchFilms = films.slice().filter((film) => film.userProps.willWatch === true);
 
-// const watchlistFilms = films.slice().filter((film) => film.userProps.willWatch === true);
+const data = {
+  films,
+  favoriteFilms,
+  watchedFilms,
+  willWatchFilms,
+  SHOWING_FILMS_COUNT_ON_START,
+};
 
 const siteHeaderElement = document.querySelector(`.header`);
 render(siteHeaderElement, Profile());
 
 const siteMainElement = document.querySelector(`.main`);
-render(siteMainElement, MainNavigation());
+render(siteMainElement, MainNavigation(data));
 render(siteMainElement, Sorting());
-render(siteMainElement, MainContent(films, SHOWING_FILMS_COUNT_ON_START));
+render(siteMainElement, MainContent(data));
 
 const siteFooterStatistictElement = document.querySelector(`.footer__statistics`);
-render(siteFooterStatistictElement, TotalFilmsCount());
+render(siteFooterStatistictElement, TotalFilmsCount(data.films.length));
+
+const filmList = document.querySelector('.films-list__container');
 
 /**
  * Popup
@@ -71,7 +79,6 @@ document.addEventListener('click', (evt) => {
  * Show more
  */
 
-const filmList = document.querySelector('.films-list__container');
 const SHOWING_FILMS_COUNT_BY_BUTTON = 5;
 
 let showingFilmsCount = SHOWING_FILMS_COUNT_ON_START;
