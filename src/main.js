@@ -15,12 +15,11 @@ const SHOWING_FILMS_COUNT_ON_START = 5;
 // Генерация моковых данных
 
 const films = generateMockFilmsData(20);
+// const getfavoriteFilms = (filmsData) => {
+//   return filmsData.slice().filter((film) => film.userProps.isFavorite === true);
+// };
 
-const getfavoriteFilms = (filmsData) => {
-  return filmsData.slice().filter((film) => film.userProps.isFavorite === true);
-};
-
-const watchlistFilms = films.slice().filter((film) => film.userProps.willWatch === true);
+// const watchlistFilms = films.slice().filter((film) => film.userProps.willWatch === true);
 
 const siteHeaderElement = document.querySelector(`.header`);
 render(siteHeaderElement, Profile());

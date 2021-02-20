@@ -5,6 +5,11 @@ import {
   createRandomLengthUniqArray,
 } from './../src/components/utils/utils';
 
+import getMockCommentsData from './comments';
+
+const comments = getMockCommentsData(100);
+
+const MAX_COMMENTS_PER_FILM = 10;
 const FIRST_FILM_DATE = new Date(`1950-01-01`);
 const END_FILM_DATE = new Date(`1990-12-31`);
 
@@ -71,8 +76,6 @@ const actors = [
   'Сергей Гуров',
 ];
 
-const comments = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-
 const ageLimits = ['0+', '6+', '12+', '16+', '18+'];
 
 const countries = [
@@ -111,9 +114,12 @@ const generateMockFilmsData = (count) => {
   const result = [];
 
   for (let i = 0; i < count; i++) {
+    const generatedComments = createRandomLengthUniqArray(comments, MAX_COMMENTS_PER_FILM).sort(
+      (a, b) => a.date - b.date
+    );
     const film = {
       id: i,
-      comments: createRandomLengthUniqArray(comments, 15),
+      comments: generatedComments,
       props: {
         title: getArrayRandomItem(titles),
         originalTitle: `Original title of the movie`,

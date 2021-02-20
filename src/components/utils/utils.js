@@ -28,7 +28,7 @@ export const createRandomLengthUniqArray = (arr, max = arr.length) => {
   return result;
 };
 
-export const getRandomDate = (start, end, startHour = 0, endHour = 0) => {
+export const getRandomDate = (start, end, startHour = 0, endHour = 23) => {
   const date = new Date(+start + Math.random() * (end - start));
   const hour = (startHour + Math.random() * (endHour - startHour)) | 0;
   date.setHours(hour);
