@@ -1,9 +1,4 @@
-import {
-  getRandomInteger,
-  getArrayRandomItem,
-  getRandomDate,
-  createRandomLengthUniqArray,
-} from './../src/components/utils/utils';
+import {getRandomInteger, getArrayRandomItem, getRandomDate, createRandomLengthUniqArray} from '../src/utils/utils';
 
 import getMockCommentsData from './comments';
 

@@ -1,4 +1,4 @@
-import {getRandomInteger, getArrayRandomItem, getRandomDate} from './../src/components/utils/utils';
+import {getRandomInteger, getArrayRandomItem, getRandomDate} from '../src/utils/utils';
 
 const START_COMMENTS_DATE = new Date('2015-01-01');
 const END_COMMENTS_DATE = new Date();
