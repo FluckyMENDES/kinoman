@@ -291,6 +291,6 @@ export default class DetailsPopup {
           </div>
           </form>
       </section>
-      `;
+    `;
   }
 }

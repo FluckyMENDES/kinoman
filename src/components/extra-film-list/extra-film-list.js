@@ -60,14 +60,13 @@ export default class ExtraFimlList {
     };
 
     return `
-          <section class="films-list--extra">
-              <h2 class="films-list__title">${title}</h2>
+      <section class="films-list--extra">
+          <h2 class="films-list__title">${title}</h2>
 
-              <div class="films-list__container">
-                ${createExtraFilmsTemplate(filmRenderCounter)}
-              </div>
-          </section>
-
-      `;
+          <div class="films-list__container">
+            ${createExtraFilmsTemplate(filmRenderCounter)}
+          </div>
+      </section>
+    `;
   }
 }

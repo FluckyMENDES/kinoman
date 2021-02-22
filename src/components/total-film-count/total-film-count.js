@@ -23,7 +23,7 @@ export default class TotalFilmsCount {
 
   createTemplate(counter) {
     return `
-          <p>${counter} movies inside</p>
-      `;
+      <p>${counter} movies inside</p>
+    `;
   }
 }
