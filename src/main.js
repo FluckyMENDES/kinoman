@@ -10,6 +10,7 @@ import ExtraFilmList from './components/extra-film-list/extra-film-list';
 import ShowMoreButton from './components/show-more-button/show-more-button';
 import TotalFilmsCount from './components/total-film-count/total-film-count';
 import DetailsPopup from './components/details-popup/details-popup';
+import NoFilms from './components/no-films/no-films';
 
 import generateMockFilmsData from '../mock/films';
 
@@ -18,6 +19,7 @@ const SHOWING_FILMS_COUNT_BY_BUTTON = 5;
 
 // Генерация моковых данных
 const films = generateMockFilmsData(20);
+
 // Создание массивов просмотренных и любимых фильмов
 const favoriteFilms = films.slice().filter((film) => film.userProps.isFavorite === true);
 const watchedFilms = films.slice().filter((film) => film.userProps.isWatched === true);
@@ -62,6 +64,12 @@ const renderMain = (mainContainer, films) => {
   // Рендер Списка фильмов
   render(mainComponent.getElement(), filmListComponent.getElement());
 
+  // Рендер сообщения, если фильмов нет
+  if (films.length < 1) {
+    render(mainComponent.getElement(), new NoFilms().getElement());
+    return;
+  }
+
   const filmListElement = filmListComponent.getElement().querySelector(CLASSES.filmListContainer);
 
   // Рендер Карточек фильмов
@@ -91,51 +99,53 @@ const renderMain = (mainContainer, films) => {
       }
     });
   }
-};
 
-// Логика рендера дополнительных списков фильмов
-const renderExtra = (container, title, films) => {
-  const extraListElement = new ExtraFilmList(title, films).getElement();
-  render(container.querySelector(CLASSES.films), extraListElement, films);
+  // Логика рендера дополнительных списков фильмов
+  const renderExtra = (container, title, films) => {
+    const extraListElement = new ExtraFilmList(title, films).getElement();
+    render(container.querySelector(CLASSES.films), extraListElement, films);
 
-  let filmRenderCounter = 2;
-  if (filmRenderCounter >= films.length) {
-    filmRenderCounter = films.length;
-  }
+    let filmRenderCounter = 2;
+    if (filmRenderCounter >= films.length) {
+      filmRenderCounter = films.length;
+    }
 
-  const getTopFilms = (arr) => {
-    const result = arr.slice().sort((a, b) => {
-      return b.props.rating - a.props.rating;
-    });
-    return result;
+    const getTopFilms = (arr) => {
+      const result = arr.slice().sort((a, b) => {
+        return b.props.rating - a.props.rating;
+      });
+      return result;
+    };
+
+    const getPopularFilms = (arr) => {
+      const result = arr.slice().sort((a, b) => {
+        return b.comments.length - a.comments.length;
+      });
+      return result;
+    };
+
+    const topFilms = getTopFilms(films);
+    const popularFilms = getPopularFilms(films);
+
+    let arr = films;
+
+    if (title === 'Top rated') {
+      arr = topFilms;
+    } else if (title === 'Most commented') {
+      arr = popularFilms;
+    }
+    for (let i = 0; i < filmRenderCounter; i++) {
+      renderFilmCard(extraListElement.querySelector('.films-list__container'), arr[i]);
+    }
   };
 
-  const getPopularFilms = (arr) => {
-    const result = arr.slice().sort((a, b) => {
-      return b.comments.length - a.comments.length;
-    });
-    return result;
-  };
-
-  const topFilms = getTopFilms(films);
-  const popularFilms = getPopularFilms(films);
-
-  let arr = films;
-
-  if (title === 'Top rated') {
-    arr = topFilms;
-  } else if (title === 'Most commented') {
-    arr = popularFilms;
-  }
-  for (let i = 0; i < filmRenderCounter; i++) {
-    renderFilmCard(extraListElement.querySelector('.films-list__container'), arr[i]);
-  }
+  // Рендерим дополнительные списки
+  renderExtra(siteMainElement, 'Top rated', films);
+  renderExtra(siteMainElement, 'Most commented', films);
 };
 
 // Рендеринг Main
 renderMain(siteMainElement, films);
-renderExtra(siteMainElement, 'Top rated', films);
-renderExtra(siteMainElement, 'Most commented', films);
 
 const siteFooterStatistictElement = document.querySelector(`.footer__statistics`);
 render(siteFooterStatistictElement, new TotalFilmsCount(data.films.length).getElement());

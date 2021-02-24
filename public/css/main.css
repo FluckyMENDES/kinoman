@@ -10,14 +10,14 @@
   --horizontal-gap: 20px;
   --vertical-gap: 28px;
 
-  --font: "Open Sans", sans-serif;
+  --font: 'Open Sans', sans-serif;
   --font-size: 16px;
   --font-size-smaller: 14px;
   --font-size-bigger: 20px;
 }
 
 html {
-  background: #121213 url("../images/background.png") no-repeat 60% 0;
+  background: #121213 url('../images/background.png') no-repeat 60% 0;
   display: flex;
   color: var(--text-color);
   font-size: var(--font-size);
@@ -166,7 +166,7 @@ button {
 
 .search__reset:before,
 .search__reset:after {
-  content: "";
+  content: '';
 
   position: absolute;
   top: 50%;
@@ -337,6 +337,7 @@ button {
 
 .film-card__title {
   margin-right: 0.5em;
+  cursor: pointer;
 }
 
 .film-card__rating,
@@ -366,6 +367,7 @@ button {
   transition: bottom 0.2s ease-out;
   width: 100%;
   z-index: 1;
+  cursor: pointer;
 }
 
 .film-card--no-controls .film-card__poster {
@@ -432,30 +434,30 @@ button {
 }
 
 .film-card__controls-item--add-to-watchlist {
-  background-image: url("../images/icons/icon-watchlist.svg");
+  background-image: url('../images/icons/icon-watchlist.svg');
   background-size: 17px 15px;
 }
 
 .film-card__controls-item--mark-as-watched {
-  background-image: url("../images/icons/icon-watched.svg");
+  background-image: url('../images/icons/icon-watched.svg');
   background-size: 14px 10px;
 }
 
 .film-card__controls-item--favorite {
-  background-image: url("../images/icons/icon-favorite.svg");
+  background-image: url('../images/icons/icon-favorite.svg');
   background-size: 18px 18px;
 }
 
 .film-card__controls-item--active.film-card__controls-item--add-to-watchlist {
-  background-image: url("../images/icons/icon-watchlist-active.svg");
+  background-image: url('../images/icons/icon-watchlist-active.svg');
 }
 
 .film-card__controls-item--active.film-card__controls-item--mark-as-watched {
-  background-image: url("../images/icons/icon-watched-active.svg");
+  background-image: url('../images/icons/icon-watched-active.svg');
 }
 
 .film-card__controls-item--active.film-card__controls-item--favorite {
-  background-image: url("../images/icons/icon-favorite-active.svg");
+  background-image: url('../images/icons/icon-favorite-active.svg');
 }
 
 .film-card:hover .film-card__poster {
@@ -498,7 +500,7 @@ button {
 .films-list--extra:last-of-type::before {
   border-left: solid 1px var(--outline-color);
   bottom: 20px;
-  content: "";
+  content: '';
   height: calc(100% - 20px * 2);
   left: calc(-1 * var(--horizontal-gap) * 1.5);
   position: absolute;
@@ -512,7 +514,7 @@ button {
 
 .footer {
   align-items: center;
-  background: url("../images/background.png") no-repeat 50% 0;
+  background: url('../images/background.png') no-repeat 50% 0;
   display: flex;
   height: 100px;
 }
@@ -579,7 +581,7 @@ button {
   outline: none;
 }
 .film-details__close-btn::before {
-  content: "✕";
+  content: '✕';
   position: absolute;
   left: 0;
   top: 0;
@@ -703,7 +705,7 @@ button {
   opacity: 0.7;
 }
 .film-details__control-label::before {
-  content: "";
+  content: '';
   width: 17px;
   height: 17px;
   position: absolute;
@@ -712,32 +714,29 @@ button {
   background-color: transparent;
 }
 .film-details__control-label--watchlist::before {
-  background: url("../images/icons/icon-watchlist.svg") no-repeat;
+  background: url('../images/icons/icon-watchlist.svg') no-repeat;
   background-size: 17px 15px;
 }
 .film-details__control-label--watched::before {
-  background: url("../images/icons/icon-watched.svg") no-repeat;
+  background: url('../images/icons/icon-watched.svg') no-repeat;
   background-size: 17px 10px;
   top: 7px;
 }
 .film-details__control-label--favorite::before {
-  background: url("../images/icons/icon-favorite.svg") no-repeat;
+  background: url('../images/icons/icon-favorite.svg') no-repeat;
   background-size: 18px;
 }
 .film-details__control-input:checked + .film-details__control-label {
   color: #f5df00;
 }
-.film-details__control-input:checked
-  + .film-details__control-label--watchlist::before {
-  background-image: url("../images/icons/icon-watchlist-active.svg");
+.film-details__control-input:checked + .film-details__control-label--watchlist::before {
+  background-image: url('../images/icons/icon-watchlist-active.svg');
 }
-.film-details__control-input:checked
-  + .film-details__control-label--watched::before {
-  background-image: url("../images/icons/icon-watched-active.svg");
+.film-details__control-input:checked + .film-details__control-label--watched::before {
+  background-image: url('../images/icons/icon-watched-active.svg');
 }
-.film-details__control-input:checked
-  + .film-details__control-label--favorite::before {
-  background-image: url("../images/icons/icon-favorite-active.svg");
+.film-details__control-input:checked + .film-details__control-label--favorite::before {
+  background-image: url('../images/icons/icon-favorite-active.svg');
 }
 .film-details__comment {
   display: flex;
@@ -818,7 +817,7 @@ button {
   position: relative;
 }
 .film-details__comment-author::after {
-  content: "";
+  content: '';
   position: absolute;
   right: 5px;
   top: 8px;
@@ -832,7 +831,7 @@ button {
   position: relative;
 }
 .film-details__comment-day::after {
-  content: "";
+  content: '';
   position: absolute;
   right: 5px;
   top: 8px;
@@ -939,7 +938,7 @@ button {
   width: 546px;
 }
 .film-details__user-rating-score::before {
-  content: "";
+  content: '';
 
   position: absolute;
   top: 0;
@@ -948,13 +947,13 @@ button {
   width: 30px;
   height: 30px;
 
-  background-image: url("../images/emoji/puke.png");
+  background-image: url('../images/emoji/puke.png');
   background-size: 90%;
   background-position: center;
   background-repeat: no-repeat;
 }
 .film-details__user-rating-score::after {
-  content: "";
+  content: '';
 
   position: absolute;
   top: 0;
@@ -963,7 +962,7 @@ button {
   width: 30px;
   height: 30px;
 
-  background-image: url("../images/emoji/trophy.png");
+  background-image: url('../images/emoji/trophy.png');
   background-size: 90%;
   background-position: center;
   background-repeat: no-repeat;
@@ -1038,7 +1037,7 @@ button {
   position: relative;
 }
 .statistic__filters-input:checked + .statistic__filters-label::before {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -2px;
   width: 100%;
