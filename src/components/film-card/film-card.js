@@ -1,27 +1,13 @@
-import {getYearFromDate, getTimeFromDuration, trimString, createElement} from '../../utils/utils';
+import {getYearFromDate, getTimeFromDuration, trimString} from '../../utils/utils';
+import Abstract from '../abstract/abstract';
 
-export default class FilmCard {
+export default class FilmCard extends Abstract {
   constructor(film) {
+    super();
     this._film = film;
-    this._element = null;
   }
 
-  getTemplate() {
-    return this.createTemplate(this._film);
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
-  }
-
-  createTemplate(film) {
+  createTemplate(film = this._film) {
     const {id, comments, props, userProps} = film;
     const {title, desc, rating, releaseDate, genres, posterUrl, durationMinutes} = props;
     const {isWatched, isFavorite, willWatch} = userProps;

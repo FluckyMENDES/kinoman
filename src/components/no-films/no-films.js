@@ -1,23 +1,8 @@
-import {createElement} from './../../utils/utils';
+import Abstract from '../abstract/abstract';
 
-export default class NoFilms {
+export default class NoFilms extends Abstract {
   constructor() {
-    this._element = null;
-  }
-
-  getTemplate() {
-    return this.createTemplate();
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
+    super();
   }
 
   createTemplate() {

@@ -1,28 +1,13 @@
-import {createElement} from './../../utils/utils';
+import Abstract from '../abstract/abstract';
 
-export default class ExtraFimlList {
+export default class ExtraFimlList extends Abstract {
   constructor(title, films) {
+    super();
     this._title = title;
     this._films = films;
-    this._element = null;
   }
 
-  getTemplate() {
-    return this.createTemplate(this._title, this._films);
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
-  }
-
-  createTemplate(title, films) {
+  createTemplate(title = this._title, films = this._films) {
     return `
       <section class="films-list--extra">
         <h2 class="films-list__title">${title}</h2>

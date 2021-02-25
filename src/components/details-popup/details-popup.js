@@ -1,27 +1,13 @@
-import {createElement, getTimeFromDuration, getHumanlikeDate} from '../../utils/utils';
+import {getTimeFromDuration, getHumanlikeDate} from '../../utils/utils';
+import Abstract from '../abstract/abstract';
 
-export default class DetailsPopup {
+export default class DetailsPopup extends Abstract {
   constructor(film) {
+    super();
     this._film = film;
-    this._element = null;
   }
 
-  getTemplate() {
-    return this.createTemplate(this._film);
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
-  }
-
-  createTemplate({comments, id, props, userProps} = this._film) {
+  createTemplate({comments, props, userProps} = this._film) {
     const {
       title,
       originalTitle,
