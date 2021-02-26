@@ -1,4 +1,4 @@
-import MainController from './controllers/main-controller';
+import PageController from './controllers/page-controller';
 import generateMockFilmsData from '../mock/films';
 
 const FILMS_COUNT = 20;
@@ -28,5 +28,5 @@ export const CLASSES = {
 
 const siteMainElement = document.querySelector(CLASSES.main);
 
-const main = new MainController(siteMainElement);
-main.render(data);
+const page = new PageController(siteMainElement);
+page.render(data);

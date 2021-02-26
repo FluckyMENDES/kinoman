@@ -17,18 +17,26 @@ import {CLASSES} from '../main';
 const SHOWING_FILMS_COUNT_ON_START = 5;
 const SHOWING_FILMS_COUNT_BY_BUTTON = 5;
 
-export default class MainController {
+export default class PageController {
   constructor(container) {
     this._container = container;
+
+    this._profileComponent = new Profile();
+    this._sortingComponent = new Sorting();
+    this._mainComponent = new MainContent();
+    this._filmListComponent = new FilmList();
+    this._noFilmsComponent = new NoFilms();
+    this._showMoreButtonComponent = new ShowMoreButton();
   }
+
   render(data) {
     const {films} = data;
 
     const siteHeaderElement = document.querySelector(CLASSES.header);
-    render(siteHeaderElement, new Profile());
+    render(siteHeaderElement, this._profileComponent);
 
     render(this._container, new MainNavigation(data));
-    render(this._container, new Sorting());
+    render(this._container, this._sortingComponent);
 
     // Логика рендеринга карточки фильма
     const renderFilmCard = (container, film) => {
@@ -38,8 +46,8 @@ export default class MainController {
 
     // Логика рендеринка основного контента
     const renderMain = (mainContainer, films) => {
-      const mainComponent = new MainContent();
-      const filmListComponent = new FilmList();
+      const mainComponent = this._mainComponent;
+      const filmListComponent = this._filmListComponent;
 
       // Рендер Main
       render(mainContainer, mainComponent);
@@ -48,7 +56,7 @@ export default class MainController {
 
       // Рендер сообщения, если фильмов нет
       if (films.length < 1) {
-        render(mainComponent, new NoFilms());
+        render(mainComponent, this._noFilmsComponent);
         return;
       }
 
@@ -62,7 +70,7 @@ export default class MainController {
       // Логика рендеринка кнопки "Show more"
       if (films.length > SHOWING_FILMS_COUNT_BY_BUTTON) {
         let renderedFilmCount = SHOWING_FILMS_COUNT_BY_BUTTON;
-        const showMoreButtonComponent = new ShowMoreButton();
+        const showMoreButtonComponent = this._showMoreButtonComponent;
 
         // Рендеринг кнопки 'Show more'
         render(mainComponent.getElement().querySelector(CLASSES.filmsList), showMoreButtonComponent);
