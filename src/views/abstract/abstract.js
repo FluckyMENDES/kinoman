@@ -1,4 +1,4 @@
-import {createElement} from '../../utils/utils';
+import {createElement} from '../../utils/render';
 
 export default class Abstract {
   constructor() {
@@ -6,6 +6,7 @@ export default class Abstract {
       throw new Error('Метод createTemplate не определен');
     }
     this._element = null;
+    this._callback = {};
   }
 
   getTemplate() {

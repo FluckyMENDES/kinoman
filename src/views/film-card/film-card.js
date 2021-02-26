@@ -1,10 +1,22 @@
-import {getYearFromDate, getTimeFromDuration, trimString} from '../../utils/utils';
+import {getYearFromDate, getTimeFromDuration, trimString} from '../../utils/common';
 import Abstract from '../abstract/abstract';
 
 export default class FilmCard extends Abstract {
   constructor(film) {
     super();
     this._film = film;
+    this._callback;
+
+    this._handleClick = this._handleClick.bind(this);
+  }
+
+  _handleClick() {
+    this._callback.click();
+  }
+
+  setClickHandler(cb) {
+    this._callback.click = cb;
+    this.getElement().addEventListener('click', this._handleClick);
   }
 
   createTemplate(film = this._film) {

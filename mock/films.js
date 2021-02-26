@@ -1,4 +1,4 @@
-import {getRandomInteger, getArrayRandomItem, getRandomDate, createRandomLengthUniqArray} from '../src/utils/utils';
+import {getRandomInteger, getArrayRandomItem, getRandomDate, createRandomLengthUniqArray} from '../src/utils/common';
 
 import getMockCommentsData from './comments';
 

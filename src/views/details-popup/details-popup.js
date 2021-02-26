@@ -1,4 +1,4 @@
-import {getTimeFromDuration, getHumanlikeDate} from '../../utils/utils';
+import {getTimeFromDuration, getHumanlikeDate} from '../../utils/common';
 import Abstract from '../abstract/abstract';
 
 export default class DetailsPopup extends Abstract {

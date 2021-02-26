@@ -6,7 +6,7 @@ export default class TotalFilmsCount extends Abstract {
     this._counter = counter;
   }
 
-  createTemplate(counter) {
+  createTemplate(counter = this._counter) {
     return `
       <p>${counter} movies inside</p>
     `;
